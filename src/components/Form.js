@@ -1,5 +1,6 @@
 import { PropTypes } from 'prop-types';
 import React from 'react';
+import './Form.css';
 
 class Form extends React.Component {
   render() {
@@ -16,7 +17,7 @@ class Form extends React.Component {
       onInputChange,
       onSaveButtonClick } = this.props;
     return (
-      <form>
+      <form className="formulario">
         <label htmlFor="name">
           <input
             type="text"
