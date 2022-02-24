@@ -14,6 +14,7 @@ class App extends React.Component {
       img: '',
       rare: '',
       check: false,
+      infos: '',
     };
   }
 
@@ -22,6 +23,22 @@ class App extends React.Component {
     this.setState({
       [name]: id === 'check' ? target.checked : value,
     });
+  }
+
+  saveButton = () => {
+    const { name, description, number1, number2, number3, img, rare, check } = this.state;
+    const infos = [{ name, description, number1, number2, number3, img, rare, check }];
+    this.setState((prevState) => ({
+      name: '',
+      description: '',
+      number1: 0,
+      number2: 0,
+      number3: 0,
+      img: '',
+      rare: 'normal',
+      check: false,
+      infos: [...prevState.infos, infos],
+    }));
   }
 
   render() {
@@ -51,6 +68,7 @@ class App extends React.Component {
           cardRare={ rare }
           cardTrunfo={ check }
           isSaveButtonDisabled={ !(checkInput && max && numMin) }
+          onSaveButtonClick={ this.saveButton }
         />
         <Card
           onInputChange={ this.handleChange }
