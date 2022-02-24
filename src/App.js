@@ -85,6 +85,23 @@ class App extends React.Component {
           cardRare={ rare }
           cardTrunfo={ check }
         />
+        <div>
+          {
+            infos.flatMap((el) => el).map((card) => (
+              <Card
+                cardName={ card.name }
+                cardDescription={ card.description }
+                cardAttr1={ card.number1 }
+                cardAttr2={ card.number2 }
+                cardAttr3={ card.number3 }
+                cardImage={ card.img }
+                cardRare={ card.rare }
+                cardTrunfo={ card.check }
+                key={ card.name }
+              />
+            ))
+          }
+        </div>
       </div>
     );
   }
