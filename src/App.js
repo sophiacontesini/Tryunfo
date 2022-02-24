@@ -14,7 +14,7 @@ class App extends React.Component {
       img: '',
       rare: '',
       check: false,
-      infos: '',
+      infos: [],
     };
   }
 
@@ -43,6 +43,7 @@ class App extends React.Component {
 
   render() {
     const { name, description, number1, number2, number3, img, rare, check } = this.state;
+    const { infos } = this.state;
     const saveInput = [name, description, img, rare];
     const sumVal = [number1, number2, number3];
     const num = 90;
@@ -52,7 +53,9 @@ class App extends React.Component {
     const sum = sumVal.map((el) => Number(el)).reduce((acc, cV) => acc + cV);
     const max = sumVal.every((el) => el >= zero && el <= num);
     const numMin = sum <= numMax; // verifica se a soma é menor q 210
-    console.log(numMin);
+    const infoMap = infos.flatMap((el) => el)
+      .map((trunfo) => trunfo.check).some((el) => el === true);
+    console.log(infoMap);
 
     return (
       <div>
@@ -69,6 +72,7 @@ class App extends React.Component {
           cardTrunfo={ check }
           isSaveButtonDisabled={ !(checkInput && max && numMin) }
           onSaveButtonClick={ this.saveButton }
+          hasTrunfo={ infoMap }
         />
         <Card
           onInputChange={ this.handleChange }
