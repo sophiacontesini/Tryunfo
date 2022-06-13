@@ -59,7 +59,8 @@ class App extends React.Component {
 
     return (
       <div>
-        <h1>Tryunfo</h1>
+        <h1 className="title">Marvel x DC</h1>
+        <h2 className="addCard">Adicione sua carta</h2>
         <Form
           onInputChange={ this.handleChange }
           cardName={ name }

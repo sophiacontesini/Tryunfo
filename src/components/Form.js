@@ -19,21 +19,25 @@ class Form extends React.Component {
 
     const trunfoCard = hasTrunfo
       ? 'Você já tem um Super Trunfo em seu baralho' : (
-        <label htmlFor="check">
-          <input
-            type="checkbox"
-            checked={ cardTrunfo }
-            onChange={ onInputChange }
-            data-testid="trunfo-input"
-            name="check"
-            id="check"
-          />
-        </label>
+        <div className="checkText">
+          <label htmlFor="check">
+            <input
+              type="checkbox"
+              checked={ cardTrunfo }
+              onChange={ onInputChange }
+              data-testid="trunfo-input"
+              name="check"
+              id="check"
+            />
+          </label>
+        </div>
       );
 
     return (
       <form className="formulario">
         <label htmlFor="name">
+          {' '}
+          Super Herói:
           <input
             type="text"
             value={ cardName }
@@ -44,6 +48,8 @@ class Form extends React.Component {
           />
         </label>
         <label htmlFor="description">
+          {' '}
+          Descrição:
           <input
             type="textarea"
             value={ cardDescription }
@@ -54,7 +60,7 @@ class Form extends React.Component {
           />
         </label>
         <label htmlFor="number1">
-          Atributo 1:
+          Força:
           <input
             type="number"
             value={ cardAttr1 }
@@ -65,7 +71,7 @@ class Form extends React.Component {
           />
         </label>
         <label htmlFor="number2">
-          Atributo 2:
+          Velocidade:
           <input
             type="number"
             value={ cardAttr2 }
@@ -76,7 +82,7 @@ class Form extends React.Component {
           />
         </label>
         <label htmlFor="number3">
-          Atributo 3:
+          Popularidade:
           <input
             type="number"
             value={ cardAttr3 }
@@ -87,6 +93,8 @@ class Form extends React.Component {
           />
         </label>
         <label htmlFor="img">
+          {' '}
+          Imagem:
           <input
             type="text"
             value={ cardImage }
@@ -97,6 +105,8 @@ class Form extends React.Component {
           />
         </label>
         <label htmlFor="rare">
+          {' '}
+          Selecione a raridade:
           <select
             data-testid="rare-input"
             value={ cardRare }
@@ -109,6 +119,8 @@ class Form extends React.Component {
             <option value="muito raro">Muito raro</option>
           </select>
         </label>
+        {' '}
+        Super Trunfo
         {
           trunfoCard
         }
